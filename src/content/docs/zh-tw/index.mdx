@@ -1,0 +1,30 @@
+---
+title: 圖書館
+template: splash
+hero:
+  tagline: 歡迎來到（凝夢）圖書館，記錄關於凝夢與其中的一切故事之地。
+  image:
+    file: ../../../assets/mets-welcome.PNG
+---
+
+import { Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+## 探索
+
+<CardGrid stagger>
+	<LinkCard 
+		title="夏嵐學院" 
+		href="/zh-tw/sma/sma"
+		description="一個關於友情、魔法，和高中日常的故事。"
+	/>
+	<LinkCard 
+		title="Project RE" 
+		href="/zh-tw/re/project-re"
+		description="一個關於宗教、魔法，和過往的回聲的故事。"
+	/>
+	<LinkCard 
+		title="凝夢" 
+		href="/zh-tw/noxeris/noxeris"
+		description="認識凝夢本身，還有無處的居民們吧。"
+	/>
+</CardGrid>

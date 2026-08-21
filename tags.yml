@@ -1,0 +1,36 @@
+tags:
+  summermist-academy:
+    label: 
+      en: "Summermist Academy"
+      zh-tw: "夏嵐學院"
+    color: "#d391ff"
+    priority: 100
+  
+  project-re:
+    label: 
+      en: "Project RE"
+      zh-tw: "Project RE"
+    color: "#ff91ff"
+    priority: 100
+  
+  nowhere:
+    label: 
+      en: "Nowhere"
+      zh-tw: "無處"
+    color: "#ab9ebf"
+    priority: 100
+  
+  characters: 
+    label: 
+      en: "characters"
+      zh-tw: "角色"
+    priority: 50
+  
+  worldbuilding:
+    label:
+      en: "world building"
+      zh-tw: "世界觀"
+    priority: 50
+
+defaults:
+  color: "#c4c4c4"

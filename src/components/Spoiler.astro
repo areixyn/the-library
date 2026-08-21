@@ -1,0 +1,57 @@
+<span
+  class="spoiler"
+  role="button"
+  tabindex="0"
+  aria-pressed="false"
+  aria-label="Spoiler, activate to reveal"
+><span class="spoiler-inner"><slot /></span></span>
+
+<style>
+  .spoiler {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0.05em 0.3em;
+    color: inherit;
+    background-color: currentColor;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .spoiler-inner {
+    pointer-events: none; /* prevents clicking links inside before reveal */
+  }
+
+  .spoiler.revealed {
+    background-color: var(--sl-color-gray-6);
+    color: inherit;
+    cursor: text;
+  }
+
+  .spoiler.revealed .spoiler-inner {
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  function toggleSpoiler(el: HTMLElement) {
+    const revealed = el.classList.toggle('revealed');
+    el.setAttribute('aria-pressed', String(revealed));
+  }
+
+  function initSpoilers() {
+    document.querySelectorAll<HTMLElement>('.spoiler').forEach((el) => {
+      if (el.dataset.spoilerInit) return;
+      el.dataset.spoilerInit = 'true';
+
+      el.addEventListener('click', () => toggleSpoiler(el));
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleSpoiler(el);
+        }
+      });
+    });
+  }
+
+  initSpoilers();
+  document.addEventListener('astro:page-load', initSpoilers);
+</script>

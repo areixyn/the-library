@@ -1,0 +1,71 @@
+---
+// import { ImageMetadata } from 'astro/dist';
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  maxHeight?: string;
+  maxWidth?: string;
+  align?: 'left' | 'right';
+  fullSrc?: ImageMetadata;
+}
+const { src, alt, caption, maxHeight = '300px', maxWidth = '280px', align = 'right', fullSrc } = Astro.props;
+const full = fullSrc || src;
+---
+<figure class:list={['wiki-thumb', align]} style={`max-width:${maxWidth}`}>
+  <Image
+    src={src}
+    alt={alt}
+    data-full={full.src}
+    data-caption={caption || ''}
+    class="wiki-thumb-img"
+    style={`max-height:${maxHeight}`}
+  />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<script>
+  // Runs once per page; Astro dedupes identical inline scripts automatically.
+  if (!window.__wikiLightboxInit) {
+    window.__wikiLightboxInit = true;
+
+    function ensureDialog() {
+      let dialog = document.getElementById('wiki-lightbox');
+      if (dialog) return dialog;
+
+      dialog = document.createElement('dialog');
+      dialog.id = 'wiki-lightbox';
+      dialog.innerHTML = `
+        <button class="wiki-lightbox-close" aria-label="Close">&times;</button>
+        <img class="wiki-lightbox-img" src="" alt="" />
+        <p class="wiki-lightbox-caption"></p>
+      `;
+      document.body.appendChild(dialog);
+
+      dialog.querySelector('.wiki-lightbox-close').addEventListener('click', () => dialog.close());
+      // click on the backdrop (the <dialog> itself, not its children) closes it
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+
+      return dialog;
+    }
+
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest('.wiki-thumb-img');
+      if (!img) return;
+
+      const dialog = ensureDialog();
+      const fullImg = dialog.querySelector('.wiki-lightbox-img');
+      const captionEl = dialog.querySelector('.wiki-lightbox-caption');
+
+      fullImg.src = img.dataset.full;
+      fullImg.alt = img.alt;
+      captionEl.textContent = img.dataset.caption;
+
+      dialog.showModal();
+    });
+  }
+</script>

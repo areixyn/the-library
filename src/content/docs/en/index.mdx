@@ -1,0 +1,30 @@
+---
+title: The Library
+template: splash
+hero:
+  tagline: Welcome to the Library (of Noxeris), where you can learn all about Noxeris and the stories within.
+  image:
+    file: ../../../assets/mets-welcome.PNG
+---
+
+import { Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+## Explore
+
+<CardGrid stagger>
+	<LinkCard 
+		title="Summermist Academy" 
+		href="/en/sma/sma"
+		description="A story of relationships, magic, and slices of the high school life."
+	/>
+	<LinkCard 
+		title="Project RE" 
+		href="/en/re/project-re"
+		description="A story of religions, magic, and a haunting past."
+	/>
+	<LinkCard 
+		title="Noxeris" 
+		href="/en/noxeris/noxeris"
+		description="Learn more about Noxeris itself, and perhaps the residents of nowhere too."
+	/>
+</CardGrid>
