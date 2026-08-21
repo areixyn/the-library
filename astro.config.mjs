@@ -7,7 +7,7 @@ import starlightSidebarTopics from 'starlight-sidebar-topics'
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://areixyn.github.io',
-	base: '/the-library/en',
+	base: '/the-library',
 	integrations: [
 		starlight({
 			plugins: [
