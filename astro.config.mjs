@@ -68,11 +68,19 @@ export default defineConfig({
 								'zh-TW': '凝夢',
 							},
             				link: '/noxeris/noxeris',
+							id: 'nox',
             				items: [
-								{ autogenerate: { directory: '/noxeris' } }
+								//{ autogenerate: { directory: '/noxeris' } }
+								'noxeris/noxeris', 'noxeris/reality', 'noxeris/areixyn', 'noxeris/metsys', 'noxeris/stargazer',
 							],
           				},
-        			]
+        			],
+					{
+            			topics: {
+              			// Associate custom pages with the "Guides" topic.
+              			nox: ['/noxeris/andrepelandrebel'],
+            			},
+          			},
 				),
 				
 			],
@@ -94,6 +102,7 @@ export default defineConfig({
 				light: './src/assets/logo-light-2.PNG',
 				dark: './src/assets/logo-dark-2.PNG',
 			},
+			//disable404Route: true,
 			customCss: [
 				'./src/styles/wikiThumb.css'
 			],
@@ -101,7 +110,10 @@ export default defineConfig({
 			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
 			social: [
 					{ icon: 'star', label: 'Tumblr', href: 'https://areixyn-en.tumblr.com/'},
-					{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' },
+					{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/areixyn.bsky.social'},
+					{ icon: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/areixyn'},
+					{ icon: 'youtube', label: 'Youtube', href: 'https://www.youtube.com/@areixyn'},
+					{ icon: 'github', label: 'GitHub', href: 'https://github.com/areixyn' },
 			],
 			
 		}),
