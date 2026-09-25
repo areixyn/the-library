@@ -71,7 +71,7 @@ export default defineConfig({
 							id: 'nox',
             				items: [
 								//{ autogenerate: { directory: '/noxeris' } }
-								'noxeris/noxeris', 'noxeris/reality', 'noxeris/areixyn', 'noxeris/metsys', 'noxeris/stargazer',
+								'noxeris/noxeris', 'noxeris/reality', 'noxeris/areixyn', 'noxeris/metsys', 'noxeris/stargazer', 'noxeris/final-bow'
 							],
           				},
         			],
